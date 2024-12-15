@@ -14,7 +14,7 @@ setlocal
 SET IOSEVKA_PATH="%temp%\Iosevka"
 SET "PATH=C:\Program Files (x86)\FontForgeBuilds\bin;%~dp0\..\bin;%PATH%"
 SET FFPYTHON_EXE="C:\Program Files (x86)\FontForgeBuilds\bin\ffpython.exe"
-SET FONTVERNUM=11
+SET FONTVERNUM=12
 SET OUTPATH="D:\Font\Miosevka%FONTVERNUM%"
 SET NERDFONT_PATCHER_PATH="%~dp0\..\bin\nerdfont\font-patcher"
 SET FONTVER=Miosevka%FONTVERNUM%
