@@ -5,21 +5,24 @@
 
 @echo off
 setlocal
-::  prerequisites in comments
-:: tested in Windows11 setup
+SET FONTVERNUM=13
 
-:: install nodejs, fontforge python 3 as mentioned in 
-:: - https://github.com/be5invis/Iosevka/blob/main/doc/custom-build.md#building
+::  prerequisites in comments
+:: 		ref https://github.com/be5invis/Iosevka/blob/main/doc/custom-build.md#building
+:: 		tested in Windows11 setup
+
+:: install nodejs, fontforge python 3. Used below versions:
+:: 		node version: v22.12.0
+:: 		Fontforge: https://github.com/fontforge/fontforge/releases/download/20230101/FontForge-2023-01-01-Windows.exe
 
 SET IOSEVKA_PATH="%temp%\Iosevka"
 SET "PATH=C:\Program Files (x86)\FontForgeBuilds\bin;%~dp0\..\bin;%PATH%"
 SET FFPYTHON_EXE="C:\Program Files (x86)\FontForgeBuilds\bin\ffpython.exe"
-SET FONTVERNUM=12
 SET OUTPATH="D:\Font\Miosevka%FONTVERNUM%"
 SET NERDFONT_PATCHER_PATH="%~dp0\..\bin\nerdfont\font-patcher"
 SET FONTVER=Miosevka%FONTVERNUM%
 
-rmdir /S /Q %OUTPATH%
+rmdir /S /Q %OUTPATH% >nul 2>&1
 mkdir %OUTPATH%
 
 echo =======================================================
@@ -27,7 +30,7 @@ echo =======================================================
 if exist %IOSEVKA_PATH%\ (
   echo Sync Iosevka 
   cd /d %IOSEVKA_PATH%
-  rmdir /S /Q "%IOSEVKA_PATH%\dist"
+  rmdir /S /Q "%IOSEVKA_PATH%\dist" >nul 2>&1
   git pull --depth=1
 ) else (
   echo Clone Iosevka

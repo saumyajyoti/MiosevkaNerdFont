@@ -17,10 +17,18 @@ For more information see:
 ## Version
 This archive is created from
 
-        commit 19753b0d046072359bf6e1a78b175ed21cbd63cf
-        Author: Fini <ulf.fini.jastrow@desy.de>
-        Date:   Sun Dec 22 23:16:21 2024 +0100
+        commit ae179415ec9d61063c4ec0074763def226f06e24
+        Author: Fini Jastrow <ulf.fini.jastrow@desy.de>
+        Date:   Wed Jan 15 16:10:00 2025 +0100
         
-            Merge pull request #1768 from hasecilu/fix/devicons_end_codepoint
+            font-patcher: Allow absolute paths on Windows
             
-            fix(font-patcher): update `SymEnd` codepoint for devicons font
+            [why]
+            On Windows an absolute path can start with the drive letter followed by
+            a colon. When we sanitize the pathname the colon is replaced by an
+            underscore.
+            
+            [how]
+            Add special handling on Windows.
+            
+            Signed-off-by: Fini Jastrow <ulf.fini.jastrow@desy.de>
