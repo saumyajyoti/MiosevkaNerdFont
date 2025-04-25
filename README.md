@@ -9,7 +9,7 @@ Added Custom Iosevka Font and patched with [NerdFont](https://github.com/ryanoas
 
 Added 
 -  IOSEVKA build plan. 2 variants with wide chars, namely Miosevka and Riosevka (Rounded variants).
--  Nerdfont Commands and script for patching, Nerd Fonts Version: 3.3.0.
+-  Nerdfont Commands and script for patching, Nerd Fonts Version: 3.4.0.
 -  Patched Fonts
 
 ### Sample Image (V11)

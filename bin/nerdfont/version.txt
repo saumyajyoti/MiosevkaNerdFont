@@ -1,1 +1,2 @@
-FontPatcher-nf-251701-3273ec0e7b44d8515a25f32717d4e53ed63b9a69
+FontPatcher-nf-3.4.0 release
+https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0

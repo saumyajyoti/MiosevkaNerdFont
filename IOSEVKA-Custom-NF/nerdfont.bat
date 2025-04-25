@@ -5,7 +5,7 @@
 
 @echo off
 setlocal
-SET FONTVERNUM=13
+SET FONTVERNUM=14
 
 ::  prerequisites in comments
 :: 		ref https://github.com/be5invis/Iosevka/blob/main/doc/custom-build.md#building
