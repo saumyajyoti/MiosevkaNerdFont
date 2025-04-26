@@ -12,7 +12,7 @@ Added
 -  Nerdfont Commands and script for patching, Nerd Fonts Version: 3.4.0.
 -  Patched Fonts
 
-### Sample Image (V11)
+### Sample Image (V14)
 ![Sample Miosevka](Screenshot-MIOSEVKA-Nerdfont.png)
 ![Sample Riosevka](Screenshot-RIOSEVKA-Nerdfont.png)
 
