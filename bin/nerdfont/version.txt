@@ -1,2 +1,2 @@
-FontPatcher-nf-3.4.0 release
-https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+FontPatcher-0def781.zip release
+https://github.com/ryanoasis/nerd-fonts/commit/0def781849d304532eead7445103cdc6b56f11df

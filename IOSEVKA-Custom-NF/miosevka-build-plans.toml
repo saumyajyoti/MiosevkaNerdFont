@@ -11,14 +11,14 @@ exportGlyphNames = true
     [buildPlans.Miosevka.variants.design]
     capital-i = "short-serifed"
     f = "serifless"
-    i = "serifed-semi-tailed"
+    i = "zshaped"
     j = "serifed"
-    l = "serifed-semi-tailed"
+    l = "zshaped"
     m = "short-leg-serifless"
-    r = "hookless-serifless"
+    r = "hookless-serifed"
     t = "flat-hook"
     braille-dot = "round"
-    asterisk = "turn-hex-low"
+    asterisk = "hex-low"
     paren = "flat-arc"
     brace = "curly-flat-boundary"
     number-sign = "upright-tall"
@@ -86,25 +86,25 @@ exportGlyphNames = true
     lig-double-arrow-bar = "without-notch"
     lig-single-arrow-bar = "without-notch"
 
-[buildPlans.Miosevka.weights.Light]
-shape = 300
-menu = 300
-css = 300
-
 [buildPlans.Miosevka.weights.Regular]
 shape = 400
 menu = 400
 css = 400
 
-[buildPlans.Miosevka.weights.SemiBold]
-shape = 600
-menu = 600
-css = 600
-
 [buildPlans.Miosevka.weights.Bold]
 shape = 700
 menu = 700
 css = 700
+
+[buildPlans.Miosevka.weights.Light]
+shape = 300
+menu = 300
+css = 300
+
+[buildPlans.Miosevka.weights.SemiBold]
+shape = 600
+menu = 600
+css = 600
 
 [buildPlans.Miosevka.weights.ExtraBold]
 shape = 800

@@ -5,19 +5,19 @@
 
 @echo off
 setlocal
-SET FONTVERNUM=14
+SET FONTVERNUM=15
 
 ::  prerequisites in comments
 :: 		ref https://github.com/be5invis/Iosevka/blob/main/doc/custom-build.md#building
 :: 		tested in Windows11 setup
 
 :: install nodejs, fontforge python 3. Used below versions:
-:: 		node version: v22.12.0
-:: 		Fontforge: https://github.com/fontforge/fontforge/releases/download/20230101/FontForge-2023-01-01-Windows.exe
+:: 		node version: v22.21.0
+:: 		Fontforge: https://github.com/fontforge/fontforge/releases/download/20251009/FontForge-2025-10-09-Windows-x64.exe
 
 SET IOSEVKA_PATH="%temp%\Iosevka"
-SET "PATH=C:\Program Files (x86)\FontForgeBuilds\bin;%~dp0\..\bin;%PATH%"
-SET FFPYTHON_EXE="C:\Program Files (x86)\FontForgeBuilds\bin\ffpython.exe"
+SET "PATH=C:\Program Files\FontForgeBuilds\bin;%~dp0\..\bin;%PATH%"
+SET FFPYTHON_EXE="C:\Program Files\FontForgeBuilds\bin\ffpython.exe"
 SET OUTPATH="D:\Font\Miosevka%FONTVERNUM%"
 SET NERDFONT_PATCHER_PATH="%~dp0\..\bin\nerdfont\font-patcher"
 SET FONTVER=Miosevka%FONTVERNUM%
@@ -55,6 +55,7 @@ call :PATCH riosevka
 echo =======================================================
 echo Copy Files
 copy /Y %~dp0\..\*license.* %OUTPATH%
+copy /Y %~dp0\..\Install-Font.ps1 %OUTPATH%
 copy /Y "%IOSEVKA_PATH%\dist\miosevka\ttf\*.ttf" %OUTPATH%
 copy /Y "%IOSEVKA_PATH%\dist\riosevka\ttf\*.ttf" %OUTPATH%
 
