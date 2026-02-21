@@ -3,19 +3,20 @@ family = "Miosevka"
 spacing = "normal"
 serifs = "sans"
 noCvSs = true
-exportGlyphNames = true
+exportGlyphNames = false
 
   [buildPlans.Miosevka.variants]
   inherits = "ss20"
 
     [buildPlans.Miosevka.variants.design]
     capital-i = "short-serifed"
-    f = "serifless"
-    i = "zshaped"
+    e = "rounded"
+    f = "flat-hook-tailed"
+    i = "serifed-flat-tailed"
     j = "serifed"
-    l = "zshaped"
+    l = "serifed-semi-tailed"
     m = "short-leg-serifless"
-    r = "hookless-serifed"
+    r = "serifless"
     t = "flat-hook"
     braille-dot = "round"
     asterisk = "hex-low"
@@ -26,6 +27,9 @@ exportGlyphNames = true
     percent = "rings-continuous-slash"
     pilcrow = "low"
     lig-ltgteq = "slanted"
+    lig-equal-chain = "with-notch"
+    lig-hyphen-chain = "with-notch"
+    lig-plus-chain = "without-notch"
 
     [buildPlans.Miosevka.variants.italic]
     one = "no-base-long-top-serif"
@@ -50,16 +54,18 @@ exportGlyphNames = true
     capital-r = "curly-open-serifless"
     capital-s = "serifless"
     capital-z = "curly-serifless-with-crossbar"
-    b = "toothless-corner-serifless"
-    d = "toothless-corner-serifless"
+    a = "single-storey-top-cut-tailed"
+    b = "bottom-cut-serifless"
+    c = "serifless"
+    d = "tailed-serifless"
     f = "flat-hook-tailed"
-    g = "single-storey-serifed"
+    g = "single-storey-serifless"
     i = "tailed-serifed"
     j = "serifless"
     k = "cursive-bottom-right-serifed"
     l = "tailed-serifed"
-    m = "short-leg-top-left-serifed"
-    n = "straight-top-left-serifed"
+    m = "short-leg-tailed-serifless"
+    n = "tailed-serifless"
     p = "eared-serifless"
     q = "diagonal-tailed-serifless"
     r = "serifless"
@@ -69,20 +75,25 @@ exportGlyphNames = true
     v = "cursive-serifless"
     w = "cursive-serifless"
     x = "semi-chancery-straight-serifless"
+    y = "cursive-serifless"
     z = "cursive"
     tittle = "round"
     braille-dot = "round"
     asterisk = "penta-low"
     paren = "flat-arc"
     brace = "curly-flat-boundary"
-    number-sign = "slanted-open-tall"
+    number-sign = "slanted-open"
     ampersand = "lower-open"
-    at = "fourfold-tall"
+    at = "fourfold-solid-inner-tall"
+    dollar = "slanted-interrupted"
     percent = "rings-segmented-slash"
+    question = "smooth"
     pilcrow = "low"
     lig-ltgteq = "slanted"
     lig-neq = "more-slanted"
     lig-equal-chain = "with-notch"
+    lig-hyphen-chain = "with-notch"
+    lig-plus-chain = "with-notch"
     lig-double-arrow-bar = "without-notch"
     lig-single-arrow-bar = "without-notch"
 
@@ -96,21 +107,6 @@ shape = 700
 menu = 700
 css = 700
 
-[buildPlans.Miosevka.weights.Light]
-shape = 300
-menu = 300
-css = 300
-
-[buildPlans.Miosevka.weights.SemiBold]
-shape = 600
-menu = 600
-css = 600
-
-[buildPlans.Miosevka.weights.ExtraBold]
-shape = 800
-menu = 800
-css = 800
-
 [buildPlans.Miosevka.widths.Normal]
 shape = 600
 menu = 5
@@ -123,7 +119,7 @@ menu = "upright"
 css = "normal"
 
 [buildPlans.Miosevka.slopes.Italic]
-angle = 9.4
+angle = 12
 shape = "italic"
 menu = "italic"
 css = "italic"

@@ -5,19 +5,19 @@
 
 @echo off
 setlocal
-SET FONTVERNUM=15
+SET FONTVERNUM=16
 
 ::  prerequisites in comments
 :: 		ref https://github.com/be5invis/Iosevka/blob/main/doc/custom-build.md#building
 :: 		tested in Windows11 setup
 
 :: install nodejs, fontforge python 3. Used below versions:
-:: 		node version: v22.21.0
+:: 		node version: v22.21.1
 :: 		Fontforge: https://github.com/fontforge/fontforge/releases/download/20251009/FontForge-2025-10-09-Windows-x64.exe
 
 SET IOSEVKA_PATH="%temp%\Iosevka"
-SET "PATH=C:\Program Files\FontForgeBuilds\bin;%~dp0\..\bin;%PATH%"
-SET FFPYTHON_EXE="C:\Program Files\FontForgeBuilds\bin\ffpython.exe"
+SET "PATH=%~dp0\..\bin;%PATH%"
+SET "FFPYTHON_EXE=%USERPROFILE%\scoop\apps\fontforge\current\bin\ffpython.exe"
 SET OUTPATH="D:\Font\Miosevka%FONTVERNUM%"
 SET NERDFONT_PATCHER_PATH="%~dp0\..\bin\nerdfont\font-patcher"
 SET FONTVER=Miosevka%FONTVERNUM%
@@ -49,8 +49,25 @@ copy /Y %~dp0\riosevka-build-plans.toml  %IOSEVKA_PATH%\private-build-plans.toml
 call npm run build -- ttf::Riosevka
 
 echo =======================================================
+echo Merge Victor Mono glyphs into Miosevka Italic variants
+set mi_ttf_dir="%IOSEVKA_PATH%\dist\miosevka\ttf"
+cd /d %mi_ttf_dir%
+python "%~dp0resources\merge_vm_glyphs.py" Miosevka-Italic.ttf "%~dp0resources\VictorMono-MediumItalic.ttf" Miosevka-Italic.ttf
+python "%~dp0resources\merge_vm_glyphs.py" Miosevka-BoldItalic.ttf "%~dp0resources\VictorMono-BoldItalic.ttf" Miosevka-BoldItalic.ttf
+cd /d %IOSEVKA_PATH%
+
+echo =======================================================
 call :PATCH miosevka
 call :PATCH riosevka
+
+echo Waiting for patching jobs to complete...
+:waitpatch
+tasklist /FI "IMAGENAME eq ffpython.exe" 2>NUL | find /I "ffpython.exe" >NUL
+if "%ERRORLEVEL%"=="0" (
+    timeout /t 3 /nobreak >NUL
+    goto :waitpatch
+)
+echo All patching complete.
 
 echo =======================================================
 echo Copy Files
@@ -63,16 +80,6 @@ cd /d %OUTPATH%\..\
 
 echo create %FONTVER%.zip 
 tar.exe -a -c -f "%FONTVER%.zip" %OUTPATH%
-
-REM :PROMPT
-REM SET /P INSTALL=Install Fonts (yes/[no])?
-REM IF /I "%INSTALL%" NEQ "yes" GOTO END
-
-REM echo installing fonts
-REM cd /d %OUTPATH%
-REM start FontReg.exe /copy
-REM cd ..
-REM :END
 
 explorer .
 exit /b 0
@@ -88,7 +95,7 @@ cd /d %fontdir%
 :: setlocal enabledelayedexpansion
 for /r %%f in (%1-*.ttf) do (
  echo "Patching: %%f"
- %FFPYTHON_EXE% %NERDFONT_PATCHER_PATH% -c %%f
+ start /B "" "%FFPYTHON_EXE%" %NERDFONT_PATCHER_PATH% -c "%%f"
 )
 exit /b 0
 ::====================================================

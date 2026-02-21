@@ -1,2 +1,1 @@
-FontPatcher-0def781.zip release
-https://github.com/ryanoasis/nerd-fonts/commit/0def781849d304532eead7445103cdc6b56f11df
+https://github.com/ryanoasis/nerd-fonts/commit/b2f65760128dca0922f4ea4a4f4f1b7471f8b465
